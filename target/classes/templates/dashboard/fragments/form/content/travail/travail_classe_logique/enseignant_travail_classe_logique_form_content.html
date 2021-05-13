@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+
+    <div class="form-group row">
+        <th:block th:insert="dashboard/fragments/form/content/fragments/form_content/travail_form_content.html
+            :: div(${id})"/>
+    </div>
+
+    <th:block th:insert="dashboard/fragments/form/content/fragments/classe_logique_module_input_field ::
+              input(
+                    ${id} + '-classe-logique-module',
+                    'onClasseLogiqueSelectionChanged()',
+                    ''
+              )"/>
+</div>
+</html>

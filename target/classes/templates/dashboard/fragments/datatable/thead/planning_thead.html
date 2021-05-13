@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/designation_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/start_date_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/end_date_thead.html'"/>
+
+<th ms-col="students" th:title="#{mvc.ui.utils.school-management.students-management.students-list.label}">
+    <i class="kt-font-brand fa fa-calendar-alt"></i>
+</th>
+
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/edit_delete_thead.html'"/>
+</thead>
+</html>

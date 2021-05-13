@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(
+    id,
+    onAnneeScolaireSelectionChanged,
+    onFilliereSelectionChanged,
+    onClasseLogiqueChanged)">
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onAnneeScolaireSelectionChanged" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onFilliereSelectionChanged" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onClasseLogiqueChanged" type="java.lang.String"*/-->
+    <div class="form-group row mt-0">
+        <div class="col-lg-4 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/annee_scolaire_input_field' ::
+
+                    input(
+                        ${id} + '-annee-scolaire-input',
+                        'findAllClassesLogiquesByAnneeScolaireAndFilliere(\''
+                            + ${id} + '-annee-scolaire-input\', \''
+                            + ${id} + '-filliere-input\', \''
+                            + ${id} + '-classe-logique-input\', \''
+                            + ${onAnneeScolaireSelectionChanged} +
+                        '\')'
+                    )"/>
+        </div>
+        <div class="col-lg-4 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/filliere_input_field' ::
+                    input(
+                        ${id} + '-filliere-input',
+                        'findAllClassesLogiquesByAnneeScolaireAndFilliere(\''
+                            + ${id} + '-annee-scolaire-input\', \''
+                            + ${id} + '-filliere-input\', \''
+                            + ${id} + '-classe-logique-input\', \''
+                            + ${onFilliereSelectionChanged} +
+                        '\')'
+                    )"/>
+        </div>
+        <div class="col-lg-4 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/classe_logique_input_field' ::
+                    input(
+                        ${id} + '-classe-logique-input', ${onClasseLogiqueChanged}
+                    )"/>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- Modal -->
+<!--/*@thymesVar id="modalId" type="java.lang.String"*/-->
+<div th:dir="#{mvc.ui.utils.direction.value}"
+     class="modal fade" id="consul-modal" style="display: none;"
+     tabindex="-1" role="dialog" aria-labelledby="?" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><i class="fa fa-copy"></i></h1>
+                <h1 id="subject-holder" class="text-center w-100"/>
+                <h1><i class="fa fa-copy"></i></h1>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
+                        <h4 class="kt-font-brand">
+                            <i class="fa fa-list-alt"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{mvc.ui.utils.school-management.teaching-management.school-program.subjects.subject.label}"/></u>
+                            <i class="fa fa-list-alt"></i>
+                        </h4>
+
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="module-holder"/>
+                        </h5>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
+                        <h4 class="kt-font-danger">
+                            <i class="fa fa-calendar-check"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{mvc.ui.utils.validity-period.label}"/></u>
+                            <i class="fa fa-calendar-check"></i>
+                        </h4>
+
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="validity-period-start-holder"/>
+                        </h5>
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="validity-period-end-holder"/>
+                        </h5>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
+                        <h4 class="kt-font-warning">
+                            <!--/*@thymesVar id="travailConsultAdditionalInformationIcon" type="java.lang.String"*/-->
+                            <!--/*@thymesVar id="travailConsultAdditionalInformationDesignationKey" type="java.lang.String"*/-->
+                            <i th:class="${travailConsultAdditionalInformationIcon}"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{${travailConsultAdditionalInformationDesignationKey}}"/></u>
+                            <i th:class="${travailConsultAdditionalInformationIcon}"></i>
+                        </h4>
+
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="additional-information-holder"/>
+                        </h5>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
+                        <h4 class="kt-font-success">
+                            <i class="fa fa-calendar-alt"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{mvc.ui.registration-moment.label}"/></u>
+                            <i class="la la-clock-o"></i>
+                        </h4>
+
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="registration-moment-date-holder"/>
+                        </h5>
+
+                        <h5 class="ms-black-color">
+                            <i class="fa fa-bullseye"></i>
+                            <span id="registration-moment-time-holder"/>
+                        </h5>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div id="content-holder" class="consulting-summernote">
+                </div>
+
+                <div class="mt-4 container">
+                    <div class="row">
+                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">
+                            <h3 class="mb-0">
+                                <i class="flaticon-circle pr-1 pl-0"></i>
+                                <span th:text="#{mvc.ui.utils.close.label}"/>
+                                <i class="flaticon-circle pr-0 pl-1"></i>
+                            </h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

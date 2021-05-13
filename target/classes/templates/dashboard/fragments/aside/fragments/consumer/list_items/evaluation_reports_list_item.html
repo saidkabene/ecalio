@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="additionalId" type="java.lang.String"*/-->
+<!--/*@thymesVar id="additionalLink" type="java.lang.String"*/-->
+
+<li th:fragment="li(additionalId, additionalLink)"
+    th:id="'evaluationReportsSideItem' + ${additionalId}" class="kt-menu__item " aria-haspopup="true">
+    <a th:href="@{'/evaluation-reports' + ${additionalLink}}" class="kt-menu__link ">
+        <i class="kt-menu__link-icon fas fa-marker"><span></span></i>
+        <span class="kt-menu__link-text"
+              th:text="#{mvc.ui.utils.school-management.evaluations-management.evaluation-reports.label}"/>
+    </a>
+</li>
+
+</html>

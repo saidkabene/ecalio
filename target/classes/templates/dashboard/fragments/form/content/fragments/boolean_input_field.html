@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id, attributeName, designationKey)">
+    <!--/*@thymesVar id="designationKey" type="java.lang.String"*/-->
+    <label class="w-100 text-center" th:text="#{ ${designationKey} }"/>
+    <span class="kt-switch kt-switch--outline kt-switch--icon kt-switch--success">
+        <label>
+            <!--/*@thymesVar id="attributeName" type="java.lang.String"*/-->
+            <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+            <input th:id="${id}" type="hidden" th:name="${attributeName}" value="false"/>
+            <input th:id="${id} + '-check'" type="checkbox" th:ms-hidden-twin="${id}">
+            <span class="ms-switch-toggles" th:for="${id}"></span>
+        </label>
+    </span>
+</div>
+</html>

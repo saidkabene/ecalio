@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/utilisateur_thead.html'"/>
+
+<th ms-field-name="numeroSiret" th:title="#{mvc.ui.person.numero-siret.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-address-card"></i>
+    <span th:text="#{mvc.ui.person.numero-siret.label}"/>
+</th>
+
+<th ms-field-name="nom" th:title="#{mvc.ui.person.nom.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-user-circle"></i>
+    <span th:text="#{mvc.ui.person.nom.label}"/>
+</th>
+
+<th ms-field-name="prenom" th:title="#{mvc.ui.person.prenom.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-user-circle"></i>
+    <span th:text="#{mvc.ui.person.prenom.label}"/>
+</th>
+
+<th ms-field-name="dateNaissance.designation" th:title="#{mvc.ui.person.date-naissance.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-birthday-cake"></i>
+    <span th:text="#{mvc.ui.person.date-naissance.label}"/>
+</th>
+
+<th ms-field-name="ville" th:title="#{mvc.ui.person.ville.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-city"></i>
+    <span th:text="#{mvc.ui.person.ville.label}"/>
+</th>
+
+<th ms-field-name="pays" th:title="#{mvc.ui.person.pays.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-place-of-worship"></i>
+    <span th:text="#{mvc.ui.person.pays.label}"/>
+</th>
+
+<th ms-field-name="raisonSociale" th:title="#{mvc.ui.person.raison-sociale.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-id-card-alt"></i>
+    <span th:text="#{mvc.ui.person.raison-sociale.label}"/>
+</th>
+
+<th ms-field-name="civilite" th:title="#{mvc.ui.person.civilite.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-ring"></i>
+    <span th:text="#{mvc.ui.person.civilite.label}"/>
+</th>
+
+
+<th ms-field-name="telephoneFix" th:title="#{mvc.ui.person.telephone-fix.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-phone-square"></i>
+    <span th:text="#{mvc.ui.person.telephone-fix.label}"/>
+</th>
+
+<th ms-field-name="telephonePortable" th:title="#{mvc.ui.person.telephone-portable.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-mobile-alt"></i>
+    <span th:text="#{mvc.ui.person.telephone-portable.label}"/>
+</th>
+
+<th ms-field-name="numeroRue" th:title="#{mvc.ui.person.numero-rue.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-road"></i>
+    <span th:text="#{mvc.ui.person.numero-rue.label}"/>
+</th>
+
+<th ms-field-name="codePostale" th:title="#{mvc.ui.person.code-postal.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-digital-tachograph"></i>
+    <span th:text="#{mvc.ui.person.code-postal.label}"/>
+</th>
+
+<th ms-field-name="complementAdressePostale" th:title="#{mvc.ui.person.complement-adresse-postal.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-align-justify"></i>
+    <span th:text="#{mvc.ui.person.complement-adresse-postal.label}"/>
+</th>
+
+</thead>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/personne_thead.html'"/>
+<th ms-field-name="grade" th:title="#{mvc.ui.enseignant.grade.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-level-up-alt"></i>
+    <span th:text="#{mvc.ui.enseignant.grade.label}"/>
+<th ms-col="program" th:title="#{mvc.ui.utils.school-management.teaching-management.school-program.subjects.short-label}">
+    <i class="kt-font-brand fa fa-book-open"></i>
+</th>
+</th><th:block th:insert="'dashboard/fragments/datatable/thead/fragments/edit_delete_thead.html'"/>
+</thead>
+</html>

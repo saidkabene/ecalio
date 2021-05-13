@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:with="schoolName=${@environment.getProperty('school.name')},
+               schoolWebsiteUrl=${@environment.getProperty('school.website.url')}"
+      th:direction="#{mvc.ui.utils.direction.value}">
+
+<!--/*@thymesVar id="dashboardContent" type="java.lang.String"*/-->
+<head>
+    <head th:insert="global/fragments/utils/dependancies::head"/>
+    <head th:insert="${dashboardContent} :: head"></head>
+</head>
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed
+    kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled
+    kt-aside--fixed kt-page--loading">
+
+<!-- begin:: Page -->
+<!-- begin:: Header Mobile -->
+<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
+    <div class="kt-header-mobile__logo">
+        <a href="http://www.ecalio.com">
+            <img class="img-fluid w-75" alt="Logo" th:src="@{/images/small_ecalio_logo_all_colored_trans.png}">
+        </a>
+    </div>
+    <div class="kt-header-mobile__toolbar">
+        <button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left"
+                id="kt_aside_mobile_toggler"><span></span></button>
+        <button class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></button>
+        <button class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i
+                class="flaticon-more"></i></button>
+    </div>
+</div>
+<!-- end:: Header Mobile -->
+
+<div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+        <!-- begin:: Aside -->
+        <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
+
+        <div th:replace="dashboard/fragments/aside/template :: aside"></div>
+        <!-- end:: Aside -->
+
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+
+            <!-- begin:: Header -->
+            <div th:replace="dashboard/global/fragments/header :: header"></div>
+            <!-- end:: Header -->
+
+            <!--/*@thymesVar id="compte" type="com.mssmfactory.ecalio.domainmodel.compte.Compte"*/-->
+            <th:block th:if="${!compte.hasChangedPassword}">
+                <div th:dir="#{mvc.ui.utils.direction.value}" th:classappend="#{mvc.ui.utils.alignment.class.value}"
+                     class="alert alert-warning alert-elevate fade show" role="alert">
+                    <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
+                    <h3 class="alert-text mr-3"
+                        th:text="#{mvc.warnings.change-password.content}"/>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="la la-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </th:block>
+
+            <!--/*@thymesVar id="warnings" type="java.util.List<String>"*/-->
+            <th:block th:each="warning : ${warnings}">
+                <div th:dir="#{mvc.ui.utils.direction.value}" th:classappend="#{mvc.ui.utils.alignment.class.value}"
+                     class="alert alert-warning alert-elevate fade show" role="alert">
+                    <div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
+                    <h3 class="alert-text mr-3"
+                        th:text="#{ ${warning} }"/>
+                    <div class="alert-close">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="la la-close"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </th:block>
+
+            <div th:replace="${dashboardContent} :: body"/>
+
+            <!-- begin:: Footer -->
+            <div th:replace="dashboard/global/fragments/footer :: footer"></div>
+            <!-- end:: Footer -->
+        </div>
+    </div>
+</div>
+<!-- end:: Page -->
+
+<!-- begin::Quick Panel -->
+<div id="kt_quick_panel" class="kt-quick-panel">
+    <a href="#" class="kt-quick-panel__close" id="kt_quick_panel_close_btn"><i class="flaticon2-delete"></i></a>
+    <div class="kt-quick-panel__nav">
+        <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x"
+            role="tablist">
+            <li class="nav-item active">
+                <a class="nav-link active" data-toggle="tab" href="#kt_quick_panel_tab_notifications" role="tab"
+                   th:text="#{mvc.ui.utils.my.notifications.label}"/>
+            </li>
+        </ul>
+    </div>
+    <div th:dir="#{mvc.ui.utils.direction.value}" class="kt-quick-panel__content">
+        <div class="tab-content">
+            <div class="tab-pane fade show kt-scroll active" id="kt_quick_panel_tab_notifications" role="tabpanel">
+                <div class="kt-notification ms-notifications-holder">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end::Quick Panel -->
+
+<!-- begin::Scrolltop -->
+<div id="kt_scrolltop" class="kt-scrolltop">
+    <i class="fa fa-arrow-up"></i>
+</div>
+<!-- end::Scrolltop -->
+
+<script th:src="@{/js/utils/communication/restcalls.js}" type="text/javascript"></script>
+<script th:src="@{/js/utils/ui/busness_to_ui.js}" type="text/javascript"></script>
+<script th:src="@{/js/dashboard/dashboard.js}" type="text/javascript"></script>
+
+<script th:src="@{/locales/bootstrap-datepicker.ar.min.js}" type="text/javascript"></script>
+<script th:src="@{/locales/bootstrap-datepicker.fr.min.js}" type="text/javascript"></script>
+
+<script th:src="@{/locales/summernote.ar.js}" type="text/javascript"></script>
+<script th:src="@{/locales/summernote.fr.js}" type="text/javascript"></script>
+</body>
+
+<th:block th:insert="${dashboardContent} :: afterBody"/>
+</html>

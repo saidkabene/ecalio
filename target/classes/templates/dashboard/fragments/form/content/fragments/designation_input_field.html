@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag">
+    <label class="w-100" th:text="#{mvc.ui.utils.designation.label}"/>
+    <div class="input-group">
+        <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fab fa-adn"></i>
+                </span>
+        </div>
+        <input name="designation" class="form-control"
+               th:placeholder="#{mvc.ui.utils.designation.label}" required>
+    </div>
+</div>
+</html>

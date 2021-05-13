@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+<!--/*@thymesVar id="id" type="java.lang.String"*/-->
+<div class="form-group row">
+    <div class="col-lg-4 kt-margin-t-5">
+        <th:block
+                th:insert="'dashboard/fragments/form/content/fragments/annee_scolaire_input_field' ::
+                    input(${id} + '-annee-scolaire-input-field', '')"/>
+    </div>
+    <div class="col-lg-4 kt-margin-t-5">
+        <th:block
+                th:insert="'dashboard/fragments/form/content/fragments/filliere_input_field' ::
+                    input(${id} + '-filliere-input-field', '')"/>
+    </div>
+    <div class="col-lg-4 kt-margin-t-5">
+        <th:block
+                th:insert="'dashboard/fragments/form/content/fragments/designation_input_field'"/>
+    </div>
+</div>
+</div>
+</html>

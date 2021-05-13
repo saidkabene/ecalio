@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- Modal -->
+<!--/*@thymesVar id="modalId" type="java.lang.String"*/-->
+<div th:dir="#{mvc.ui.utils.direction.value}"
+     class="modal fade" id="consul-modal" style="display: none;"
+     tabindex="-1" role="dialog" aria-labelledby="?" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><i class="fa fa-mail-bulk"></i></h1>
+                <h1 id="subject-holder" class="text-center w-100"/>
+                <h1><i class="fa fa-mail-bulk"></i></h1>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-12 mb-2">
+                        <h4>
+                            <i class="fa fa-arrow-alt-circle-down"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{mvc.ui.services.messaging.message.emeeter.label}"/></u>
+                        </h4>
+
+                        <h5>
+                            <i class="fa fa-address-card"></i>
+                            <span id="emeeter-holder"/>
+                        </h5>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12 mb-2">
+                        <h4>
+                            <i class="fa fa-arrow-alt-circle-up"></i>
+                            <u><span class="font-weight-bold"
+                                     th:text="#{mvc.ui.services.messaging.message.receiver.label}"/></u>
+                        </h4>
+
+                        <h5>
+                            <i class="fa fa-address-card"></i>
+                            <span id="receiver-holder"/>
+                        </h5>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12 mb-2">
+                        <h5>
+                            <i class="fa fa-calendar-alt"></i>
+                            <span id="date-holder"/>
+                        </h5>
+
+                        <h5>
+                            <i class="la la-clock-o"></i>
+                            <span id="time-holder"/>
+                        </h5>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div id="content-holder" class="consulting-summernote">
+
+                </div>
+
+                <div class="mt-4 container">
+                    <div id="attachment_holder" class="">
+                        <div class="kt-portlet kt-callout kt-callout--info kt-callout--diagonal-bg">
+                            <div class="kt-portlet__body">
+                                <div class="kt-callout__body">
+                                    <div class="kt-callout__content">
+                                        <h3 id="attachment_name_holder" class="kt-callout__title"></h3>
+                                        <p class="kt-callout__desc font-weight-bold"
+                                           th:text="#{mvc.ui.utils.click-and-download-attachment.content}"></p>
+
+                                        <div>
+                                            <span th:text="#{mvc.ui.services.messaging.message.attachment.size.label}"
+                                                  class="font-weight-bold"></span>
+                                            <span class="font-weight-bold">: </span>
+                                            <span class="font-weight-bold" id="attachment_size_holder"></span>
+                                        </div>
+                                    </div>
+                                    <div class="kt-callout__action">
+                                        <a id="attachment_link_holder"
+                                           class="btn btn-custom btn-bold btn-upper btn-font-sm  btn-brand text-white"
+                                           th:text="#{mvc.ui.utils.download.label}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">
+                            <h3 class="mb-0">
+                                <i class="flaticon-circle pr-1 pl-0"></i>
+                                <span th:text="#{mvc.ui.utils.close.label}"/>
+                                <i class="flaticon-circle pr-0 pl-1"></i>
+                            </h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

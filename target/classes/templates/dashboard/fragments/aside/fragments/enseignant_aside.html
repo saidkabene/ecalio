@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="body">
+    <li class="kt-menu__section ">
+        <h4 class="kt-menu__section-text" th:text="#{mvc.ui.utils.dashboard.label}"/>
+        <i class="kt-menu__section-icon flaticon-more-v2"></i>
+    </li>
+
+    <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_planning_list_item.html :: li('', '')"/>
+    <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/evaluation_reports_list_item.html :: li('', '')"/>
+    <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/absences_list_item.html :: li('', '')"/>
+
+    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+        data-ktmenu-submenu-toggle="hover">
+        <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            <i class="kt-menu__link-icon fa fa-copy"></i>
+            <span class="kt-menu__link-text"
+                  th:text="#{mvc.ui.utils.school-management.homeworks-management.label}"/>
+            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+        </a>
+
+        <div class="kt-menu__submenu " kt-hidden-height="280">
+            <span class="kt-menu__arrow"></span>
+            <ul class="kt-menu__subnav">
+                <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                <span class="kt-menu__link">
+                    <span class="kt-menu__link-text"
+                          th:text="#{mvc.ui.utils.school-management.homeworks-management.label}"/>
+                </span>
+                </li>
+
+                <li id="groupHomeworksListSideItem" class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/enseignant/group-homeworks}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.utils.school-management.homeworks-management.classe-logique-homeworks.homeworks-list.label}"/>
+                    </a>
+                </li>
+
+                <li id="individualHomeworksListSideItem" class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/enseignant/individual-homeworks}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.utils.school-management.homeworks-management.etudiant-homeworks.homeworks-list.label}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_canteen_list_item.html :: li('', '')"/>
+</body>
+</html>

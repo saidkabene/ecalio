@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="additionalId" type="java.lang.String"*/-->
+<!--/*@thymesVar id="additionalLink" type="java.lang.String"*/-->
+
+<li th:fragment="li(additionalId, additionalLink)"
+    th:id="'absencesListSideItem' + ${additionalId}" class="kt-menu__item " aria-haspopup="true">
+    <a th:href="@{'/absences' + ${additionalLink}}" class="kt-menu__link ">
+        <i class="kt-menu__link-icon fa fa-calendar-times"><span></span></i>
+        <span class="kt-menu__link-text"
+              th:text="#{mvc.ui.utils.school-management.absences-management.absences-list.label}"/>
+    </a>
+</li>
+
+</html>

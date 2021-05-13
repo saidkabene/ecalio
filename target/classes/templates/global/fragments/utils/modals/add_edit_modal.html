@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- Modal -->
+<!--/*@thymesVar id="modalId" type="java.lang.String"*/-->
+<div th:dir="#{mvc.ui.utils.direction.value}"
+     th:fragment="modal(modalId, initialModalTitle, formAction, formContent, onFormSubmitedSuccessfullyCallback)"
+     class="modal fade" th:id="${modalId}" style="display: none;"
+     tabindex="-1" role="dialog" aria-labelledby="?" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><i class="fa fa-pen pr-3 text-primary"></i></h1>
+                <!--/*@thymesVar id="initialModalTitle" type="java.lang.String"*/-->
+                <h1 th:id="${modalId} + 'Title'" th:text="${initialModalTitle}"
+                    class="text-center w-100"/>
+                <h1><i class="fa fa-pen pl-3 text-primary"></i></h1>
+            </div>
+
+            <!--/*@thymesVar id="formAction" type="java.lang.String"*/-->
+            <!--/*@thymesVar id="onFormSubmitedSuccessfullyCallback" type="java.lang.String"*/-->
+            <form th:action="${formAction}" method="POST" class="post-json-form"
+                  ms-simple-notify-on-success="true"
+                  ms-clear-on-success="true"
+                  ms-notify-on-fail="true"
+                  th:ms-success-callback="${onFormSubmitedSuccessfullyCallback}">
+                <div class="modal-body pb-0">
+                    <!--/*@thymesVar id="formContent" type="java.lang.String"*/-->
+                    <th:block th:insert="'dashboard/fragments/form/content/' + ${formContent} :: div(${modalId})"/>
+                </div>
+
+                <div class="modal-footer" dir="ltr">
+                    <button type="button" class="btn btn-danger w-100" data-dismiss="modal">
+                        <h3 class="mb-0">
+                            <i class="flaticon-circle pr-1 pl-0"></i>
+                            <span th:text="#{mvc.ui.utils.cancel.label}"/>
+                            <i class="flaticon-circle pr-0 pl-1"></i>
+                        </h3>
+                    </button>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        <h3 class="mb-0">
+                            <i class="flaticon2-check-mark pr-1 pl-0"></i>
+                            <span th:text="#{mvc.ui.utils.confirm}"/>
+                            <i class="flaticon2-check-mark pr-0 pl-1"></i>
+                        </h3>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="date(datePickerType, dateLabelKey, inputName, required)">
+    <!--/*@thymesVar id="dateLabelKey" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="datePickerType" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="inputName" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="required" type="java.lang.String"*/-->
+    <label class="w-100" th:text="#{ ${dateLabelKey} }"/>
+
+    <div class="input-group date" th:classappend="${datePickerType}">
+        <div class="input-group-append">
+            <span class="input-group-text">
+                <i class="la la-calendar"></i>
+            </span>
+        </div>
+
+        <input type="text" class="input-sm form-control" th:name="${ inputName }"
+               th:attrappend="required=${required}"/>
+    </div>
+</div>
+</html>

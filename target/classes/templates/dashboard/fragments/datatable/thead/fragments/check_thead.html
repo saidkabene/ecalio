@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag" th:fragment="thead(
+    attributeName,
+    designationKey
+)">
+<!--/*@thymesVar id="attributeName" type="java.lang.String"*/-->
+<!--/*@thymesVar id="designationKey" type="java.lang.String"*/-->
+<th th:ms-check-field-name="${attributeName}" th:title="#{ ${designationKey} }">
+    <i class="mr-2 ml-2 kt-font-brand fa fa-check-circle"></i>
+    <span th:text="#{ ${designationKey} }"/>
+</th>
+</thead>
+</html>

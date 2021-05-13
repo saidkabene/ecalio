@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:dir="#{mvc.ui.utils.direction.value}" th:fragment="modal" id="deletionModal" class="modal fade"
+     style="display: none;" tabindex="-1" role="dialog" aria-labelledby="?" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><i class="fa fa-trash-alt pr-3 text-danger"></i></h1>
+                <h1 id="deletionDescriptionTitle" class="text-center w-100" />
+                <h1><i class="fa fa-trash-alt pl-3 text-danger"></i></h1>
+            </div>
+
+            <div class="modal-body">
+                <h3 class="text-center w-100" th:text="#{mvc.ui.utils.delete.confirmation.content}"/>
+            </div>
+
+            <div class="modal-footer font-weight-bold" dir="ltr">
+                <button type="button" class="btn btn-danger w-100" data-dismiss="modal">
+                    <h3 class="mb-0">
+                        <i class="flaticon-circle pr-1 pl-0"></i>
+                        <span th:text="#{mvc.ui.utils.cancel.label}"/>
+                        <i class="flaticon-circle pr-0 pl-1"></i>
+                    </h3>
+                </button>
+
+                <button type="button" class="btn btn-success w-100" onclick="confirmDeletion()">
+                    <h3 class="mb-0">
+                        <i class="flaticon2-check-mark pr-1 pl-0"></i>
+                        <span th:text="#{mvc.ui.utils.confirm}"/>
+                        <i class="flaticon2-check-mark pr-0 pl-1"></i>
+                    </h3>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <div class="form-group row">
+        <div class="col-4">
+            <th:block th:insert="dashboard/fragments/form/content/fragments/day_of_week_input_field ::
+               input(${id} + '-day-of-week', '')"/>
+        </div>
+
+        <div class="col-8">
+            <th:block th:insert="dashboard/fragments/form/content/fragments/time_range_picker_input_field ::
+               input(${id} + '-time-range-picker', 'required')"/>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(
+    id,
+    onRentreeScolaireSelectionChanged,
+    onPeriodeEnseignementSelectionChanged)">
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onEtudiantSelectionChanged" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onRentreeScolaireSelectionChanged" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onPeriodeEnseignementSelectionChanged" type="java.lang.String"*/-->
+    <div class="form-group row mt-0">
+        <div class="col-lg-6 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/rentree_scolaire_input_field' ::
+                    input(
+                        ${id} + '-rentree-scolaire-input',
+                        ${onRentreeScolaireSelectionChanged}
+                    )"
+            />
+        </div>
+        <div class="col-lg-6 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/periode_enseignement_input_field' ::
+                    input(
+                        ${id} + '-periode-enseignement-input', ${onPeriodeEnseignementSelectionChanged}
+                    )"/>
+        </div>
+    </div>
+</div>
+</html>

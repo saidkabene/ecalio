@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="editor(id)" class="note-editor note-frame panel panel-default" th:id="${id}">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <textarea th:id="${id}" class="summernote" name="content"></textarea>
+</div>
+</html>

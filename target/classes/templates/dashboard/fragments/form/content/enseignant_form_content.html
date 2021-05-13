@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+<th:block th:insert="dashboard/fragments/form/content/fragments/form_content/personne_form_content"/>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label class="w-100" th:text="#{mvc.ui.enseignant.grade.label}"/>
+        <div class="input-group">
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-level-up-alt"></i>
+                </span>
+            </div>
+            <input name="grade" class="form-control"
+                   th:placeholder="#{mvc.ui.enseignant.grade.label}">
+        </div>
+    </div>
+</div>
+</div>
+</html>

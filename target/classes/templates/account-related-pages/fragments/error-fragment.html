@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+</head>
+<body th:fragment="body">
+<div class="kt-login__form">
+    <div class="kt-login__title">
+        <h1 class="text-primary" th:text="#{mvc.errors.four-hundred-four-error.title}"/>
+        <h5 class="mt-5" th:text="#{mvc.errors.four-hundred-four-error.content}"/>
+
+        <a th:href="@{/login}" class="mt-5 btn btn-primary btn-lg btn-elevate"
+           role="button" aria-disabled="true" th:text="#{mvc.ui.login.label}"/>
+    </div>
+</div>
+</body>
+</html>

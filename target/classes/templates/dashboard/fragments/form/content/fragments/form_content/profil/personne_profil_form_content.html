@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="utilisateur" type="com.mssmfactory.ecalio.domainmodel.utilisateur.personne.Personne"*/-->
+<div th:remove="tag">
+    <div class="form-group row">
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.nom.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa fa-user-circle"></i>
+                </span>
+                </div>
+                <input name="nom" class="form-control" required
+                       th:placeholder="#{mvc.ui.person.nom.label}"
+                       th:value="${utilisateur.getNom()}">
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.prenom.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa fa-user-circle"></i>
+                </span>
+                </div>
+                <input name="prenom" class="form-control" required
+                       th:placeholder="#{mvc.ui.person.prenom.label}"
+                       th:value="${utilisateur.getPrenom()}">
+            </div>
+        </div>
+        <div id="ddnHolder" class="col-lg-4 mt-2">
+            <th:block th:insert="dashboard/fragments/form/content/fragments/date_picker_input_field
+            :: date('full-date-picker', 'mvc.ui.person.date-naissance.label', 'dateNaissance', '')"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.civilite.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-ring"></i>
+                </span>
+                </div>
+                <input name="civilite" class="form-control"
+                       th:placeholder="#{mvc.ui.person.civilite.label}"
+                       th:value="${utilisateur.getCivilite()}">
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.telephone-fix.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-phone-square"></i>
+                </span>
+                </div>
+                <input name="telephoneFix" class="form-control"
+                       th:placeholder="#{mvc.ui.person.telephone-fix.label}"
+                       th:value="${utilisateur.getTelephoneFix()}">
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.telephone-portable.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-mobile-alt"></i>
+                </span>
+                </div>
+                <input name="telephonePortable" class="form-control"
+                       th:placeholder="#{mvc.ui.person.telephone-portable.label}"
+                       th:value="${utilisateur.getTelephonePortable()}">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.ville.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-city"></i>
+                </span>
+                </div>
+                <input name="ville" class="form-control"
+                       th:placeholder="#{mvc.ui.person.ville.label}"
+                       th:value="${utilisateur.getVille()}">
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.pays.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-place-of-worship"></i>
+                </span>
+                </div>
+                <input name="pays" class="form-control"
+                       th:placeholder="#{mvc.ui.person.pays.label}"
+                       th:value="${utilisateur.getPays()}">
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.code-postal.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-digital-tachograph"></i>
+                </span>
+                </div>
+                <input name="codePostale" class="form-control"
+                       th:placeholder="#{mvc.ui.person.code-postal.label}"
+                       th:value="${utilisateur.getCodePostale()}">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-lg-4 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.numero-rue.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-road"></i>
+                </span>
+                </div>
+                <input name="numeroRue" class="form-control"
+                       th:placeholder="#{mvc.ui.person.numero-rue.label}"
+                       th:value="${utilisateur.getNumeroRue()}">
+            </div>
+        </div>
+        <div class="col-lg-8 mt-2">
+            <label class="w-100" th:text="#{mvc.ui.person.complement-adresse-postal.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fa fa-align-justify"></i>
+                </span>
+                </div>
+                <input name="complementAdressePostale" class="form-control"
+                       th:placeholder="#{mvc.ui.person.complement-adresse-postal.label}"
+                       th:value="${utilisateur.getComplementAdressePostale()}">
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        $("#ddnHolder").find(".date").addClass("custom-date-value");
+        $("#ddnHolder").find(".date").attr("custom-date-value", [[${utilisateur.getInputFormattedDateNaissance()}]]);
+    </script>
+</div>
+</html>

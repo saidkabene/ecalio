@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<!--/*@thymesVar id="criteresEvaluationsNonModulaires" type="java.util.List<com.mssmfactory.ecalio.domainmodel.enseignement.notation.CritereEvaluation>"*/-->
+<th:block th:each="critereEvaluation: ${criteresEvaluationsNonModulaires}">
+    <th th:ms-field-id="${critereEvaluation.id}" th:ms-field-name="${critereEvaluation.getDesignation()}">
+        <span th:text="${critereEvaluation.getDesignation()}"/>
+</th:block>
+</thead>
+</html>

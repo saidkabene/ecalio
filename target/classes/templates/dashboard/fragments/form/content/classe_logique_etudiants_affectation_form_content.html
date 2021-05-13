@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <div class="form-group row">
+        <div class="col-lg-12">
+            <th:block th:insert="'dashboard/fragments/form/content/fragments/etudiant_multi_selector_input_field'
+                :: input('etudiant_multi_selector_input_field_etudiants', '')"/>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <div class="form-group row">
+        <div class="col-12">
+            <th:block th:insert="'dashboard/fragments/form/content/fragments/designation_input_field'"/>
+        </div>
+    </div>
+
+    <div class="form-group row text-center">
+        <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+        <div class="col-12">
+            <th:block th:insert="'dashboard/fragments/form/content/fragments/boolean_input_field' ::
+                input(${id} + '-boolean_input_field', 'boundToModule',
+                'mvc.ui.utils.school-management.evaluations-management.evaluation-critarias.bound-to-module.label')"/>
+        </div>
+    </div>
+</div>
+</html>

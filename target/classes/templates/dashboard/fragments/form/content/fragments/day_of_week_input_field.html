@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id, onSelectedChangedCallback)">
+    <label class="w-100"
+           th:text="#{mvc.ui.utils.day-of-week.label}"/>
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onSelectedChangedCallback" type="java.lang.String"*/-->
+    <select class="form-control kt-select2 day-of-week-select html-kt-select2" name="jourDeSemaine"
+            th:id="${id}"
+            th:ms-onchange="${onSelectedChangedCallback}"
+            th:placeholder="#{mvc.ui.utils.day-of-week.label}">
+
+        <option value="5" th:text="#{mvc.ui.utils.day-of-week.saturday.label}"/>
+        <option value="6" th:text="#{mvc.ui.utils.day-of-week.sunday.label}"/>
+        <option value="0" th:text="#{mvc.ui.utils.day-of-week.monday.label}"/>
+        <option value="1" th:text="#{mvc.ui.utils.day-of-week.tuesday.label}"/>
+        <option value="2" th:text="#{mvc.ui.utils.day-of-week.wednesday.label}"/>
+        <option value="3" th:text="#{mvc.ui.utils.day-of-week.thursday.label}"/>
+        <option value="4" th:text="#{mvc.ui.utils.day-of-week.friday.label}"/>
+    </select>
+</div>
+</html>

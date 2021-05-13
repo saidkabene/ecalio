@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <!--/*@thymesVar id="requestUrlId" type="java.lang.String"*/-->
+
+    <title>Ecalio</title>
+
+    <meta name="description" content="Ecalio">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="contextPath" th:content="${#httpServletRequest.getContextPath()}">
+    <meta name="requestUrlId" th:content="${requestUrlId}">
+    <meta name="textAlignment" th:content="#{mvc.ui.utils.alignment.class.value}">
+
+    <style>
+        .toast-message {
+            text-align: [[#{mvc.ui.utils.alignment.attribute.value}]] !important;
+        }
+
+        .toast-title {
+            text-align: [[#{mvc.ui.utils.alignment.attribute.value}]] !important;
+        }
+
+        .invalid-feedback {
+            text-align: [[#{mvc.ui.utils.alignment.attribute.value}]] !important;
+        }
+
+        label {
+            text-align: [[#{mvc.ui.utils.alignment.attribute.value}]] !important;
+        }
+
+        .select2-container{
+            text-align: [[#{mvc.ui.utils.alignment.attribute.value}]] !important;
+        }
+    </style>
+
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/style.bundle.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{'/assets/plugins/global/' + #{mvc.ui.css.plugin-bundle.file-name}}"
+          type="text/css">
+    <link rel="stylesheet" th:href="@{/assets/css/flagicon/flag-icon.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/utils/utils.css}" type="text/css">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          type="text/css">
+
+    <script th:src="@{/assets/plugins/global/plugins.bundle.min.js}" type="text/javascript"></script>
+    <script th:src="@{/assets/js/scripts.bundle.min.js}" type="text/javascript"></script>
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+            type="text/javascript"></script> -->
+
+    <script th:src="@{/js/utils/utils.js}" type="text/javascript"></script>
+    <script th:src="@{/js/utils/ui/notifications.js}" type="text/javascript"></script>
+
+    <script>
+        var KTAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#2c77f4",
+                    "light": "#ffffff",
+                    "dark": "#282a3c",
+                    "primary": "#5867dd",
+                    "success": "#34bfa3",
+                    "info": "#36a3f7",
+                    "warning": "#ffb822",
+                    "danger": "#fd3995"
+                },
+                "base": {
+                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                }
+            }
+        };
+
+        function change_language(lang, langName) {
+            document.cookie = "lang=" + lang;
+            document.cookie = "langName=" + langName;
+
+            window.location.reload();
+        }
+    </script>
+</head>
+</html>

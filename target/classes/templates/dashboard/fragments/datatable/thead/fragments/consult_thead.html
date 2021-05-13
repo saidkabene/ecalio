@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:fragment="thead(icon)" th:remove="tag">
+<th ms-col="consult" th:title="#{mvc.ui.utils.consult.label}">
+    <!--/*@thymesVar id="icon" type="java.lang.String"*/-->
+    <i class="kt-font-brand" th:classappend="${icon}"></i>
+</th>
+</thead>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(
+    id,
+    onModuleSelectionChanged,
+    onEnseignantSelectionChanged)">
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onModuleSelectionChanged" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onEnseignantSelectionChanged" type="java.lang.String"*/-->
+    <div class="form-group row mt-0">
+        <div class="col-lg-6 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/module_input_field' ::
+
+                    input(
+                        ${id} + '-module-input',
+                        'findAllEnseignantsByModule(\''
+                            + ${id} + '-module-input\', \''
+                            + ${id} + '-enseignant-input\', \''
+                            + ${onModuleSelectionChanged} +
+                        '\')'
+                    )"/>
+        </div>
+
+        <div class="col-lg-6 kt-margin-t-5">
+            <th:block
+                    th:insert="'dashboard/fragments/form/content/fragments/enseignant_input_field' ::
+                    input(
+                        ${id} + '-enseignant-input', ${onEnseignantSelectionChanged}
+                    )"/>
+        </div>
+    </div>
+</div>
+</html>

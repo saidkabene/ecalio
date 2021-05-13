@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+</head>
+<body th:fragment="body">
+<div class="kt-login__form">
+    <div class="kt-login__title">
+        <h3 th:text="#{mvc.ui.login.label}"/>
+        <h5 class="text-danger mt-5" th:if="${(param.error != null) && (param.error[0] != '')}"
+            th:text="#{ ${param.error[0]} }"/>
+    </div>
+    <form class="kt-form" th:action="@{/loginService}" novalidate="novalidate" id="kt_login_form" method="post">
+        <div class="form-group">
+            <input class="form-control" type="text" th:placeholder="#{mvc.ui.compte.username.label}" name="username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" th:placeholder="#{mvc.ui.compte.password.label}"
+                   name="password">
+        </div>
+
+        <div class="kt-login__actions">
+            <a th:href="@{/forgot-password}" class="kt-link kt-login__link-forgot"
+               th:text="#{mvc.ui.forgot-password.question}"/>
+
+            <button id="kt_login_signin_submit"
+                    class="btn btn-primary btn-elevate kt-login__btn-primary"
+                    th:text="#{mvc.ui.login.label}"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

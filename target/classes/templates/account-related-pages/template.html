@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:dir="#{mvc.ui.utils.direction.value}">
+<!--/*@thymesVar id="fragmentContent" type="java.lang.String"*/-->
+<head>
+    <head th:insert="global/fragments/utils/dependancies::head"/>
+    <head th:insert="${fragmentContent}::head"/>
+
+    <link rel="stylesheet"
+          th:href="@{'/assets/css/pages/account-related-pages/' + #{mvc.ui.css.account-related-pages.file-name}}" type="text/css">
+</head>
+<style>
+    .purple-background{
+        background-image: url([[@{/images/purple_background.jpg}]]);
+    }
+</style>
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed">
+<div class="kt-grid kt-grid--ver kt-grid--root kt-page">
+    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+            <div class="purple-background kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+                >
+                <div class="kt-grid__item">
+                    <a href="#" class="kt-login__logo">
+                        <img class="img-fluid w-25"
+                             th:src="@{/images/ecalio_logo_white_trans.png}">
+                    </a>
+                </div>
+                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+                    <div class="kt-grid__item kt-grid__item--middle">
+                        <h3 class="kt-login__title" th:classappend="#{mvc.ui.utils.alignment.class.value}"
+                            th:text="#{mvc.ui.welcome-message.content}"/>
+                        <h4 class="kt-login__subtitle" th:text="#{mvc.ui.welcome-message.description}"/>
+                    </div>
+                </div>
+                <div class="kt-grid__item">
+                    <div class="kt-login__info">
+                        <div class="kt-login__copyright">
+                            © 2019 Ecalio
+                        </div>
+                        <div class="kt-login__menu">
+                            <a href="http://www.ecalio.com"
+                               class="kt-link" th:text="#{mvc.ui.utils.learn-more.value}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
+                <div class="kt-login__head pr-0">
+                    <ul th:replace="global/fragments/utils/languages_chooser.html::languages-chooser"></ul>
+                </div>
+
+                <div class="kt-login__body" th:insert="${fragmentContent}::body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

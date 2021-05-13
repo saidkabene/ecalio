@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<th ms-field-name="compte.email" th:title="#{mvc.ui.services.messaging.message.correspondant}">
+    <i class="kt-font-brand mr-2 ml-2 flaticon-email-black-circular-button"></i>
+    <span th:text="#{mvc.ui.services.messaging.message.correspondant}"/>
+</th>
+
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/date_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/time_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/subject_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/check_thead.html'
+    :: thead(
+          'lu',
+          'mvc.ui.services.messaging.message.read.label'
+    )"/>
+
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/consult_thead.html'
+    :: thead('fa fa-mail-bulk')"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/delete_thead.html'"/>
+</thead>
+</html>

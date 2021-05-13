@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <th:block th:insert="dashboard/fragments/form/content/fragments/classe_logique_module_input_field ::
+              input(
+                    ${id} + '-classe-logique-module',
+                    'onClasseLogiqueSelectionChanged()',
+                    ''
+              )"/>
+
+    <div class="form-group row">
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/etudiant_date_heure' ::
+                input(${id} + '-etudiant-date-heure', '')"/>
+    </div>
+</div>
+</html>

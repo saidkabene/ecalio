@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<button th:fragment="confirm-button" type="submit"
+        th:classappend="#{mvc.ui.utils.alignment.pull-class}"
+        class="btn btn-outline-success btn-elevate btn-pill btn-outline-brand btn-elevate-air btn-lg">
+    <i class="flaticon2-check-mark"></i>
+    <span class="ml-2 mr-2" th:text="#{mvc.ui.utils.confirm}"></span>
+    <i class="flaticon2-check-mark"></i>
+</button>
+</body>
+</html>

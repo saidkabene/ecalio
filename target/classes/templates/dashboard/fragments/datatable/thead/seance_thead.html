@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<thead th:remove="tag">
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/day_of_week_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/start_time_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/end_time_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/designation_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/module_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/enseignant_thead.html'"/>
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/classe_logique_thead.html'"/>
+
+<th ms-field-name="classePhysique"
+    th:title="#{mvc.ui.utils.school-management.plannings-management.plannings.planning.seance.classe-physique.label}">
+    <i class="kt-font-brand mr-2 ml-2 fa fa-door-open"></i>
+    <span th:text="#{mvc.ui.utils.school-management.plannings-management.plannings.planning.seance.classe-physique.label}"/>
+</th>
+
+<th:block th:insert="'dashboard/fragments/datatable/thead/fragments/delete_thead.html'"/>
+</thead>
+</html>

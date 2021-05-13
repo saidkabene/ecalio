@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="div(entityId)" th:remove="tag">
+
+    <li class="kt-menu__section ">
+        <h4 class="kt-menu__section-text" th:text="#{mvc.ui.utils.dashboard.label}"/>
+        <i class="kt-menu__section-icon flaticon-more-v2"></i>
+    </li>
+
+    <!-- ***************************************************************************************** -->
+
+    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+        data-ktmenu-submenu-toggle="hover">
+        <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            <i class="kt-menu__link-icon fa fa-calendar-alt"></i>
+            <span class="kt-menu__link-text"
+                  th:text="#{mvc.ui.utils.school-management.plannings-management.label}"/>
+            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+        </a>
+
+        <div class="kt-menu__submenu " kt-hidden-height="280">
+            <span class="kt-menu__arrow"></span>
+            <ul class="kt-menu__subnav">
+                <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                <span class="kt-menu__link">
+                    <span class="kt-menu__link-text"
+                          th:text="#{mvc.ui.utils.school-management.plannings-management.label}"/>
+                </span>
+                </li>
+
+                <li id="currentPlanningSideItem" class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/consumer/current-schedule}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.utils.school-management.plannings-management.plannings.planning.my-planning.label}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <!-- ***************************************************************************************** -->
+
+    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+        data-ktmenu-submenu-toggle="hover">
+        <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            <i class="kt-menu__link-icon fas fa-marker"></i>
+            <span class="kt-menu__link-text"
+                  th:text="#{mvc.ui.utils.school-management.evaluations-management.label}"/>
+            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+        </a>
+
+        <div class="kt-menu__submenu " kt-hidden-height="280">
+            <span class="kt-menu__arrow"></span>
+            <ul class="kt-menu__subnav">
+                <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                <span class="kt-menu__link">
+                    <span class="kt-menu__link-text"
+                          th:text="#{mvc.ui.utils.school-management.evaluations-management.label}"/>
+                </span>
+                </li>
+
+                <li id="evaluationReportsSideItem" class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/evaluation-reports}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.utils.school-management.evaluations-management.evaluation-reports.label}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <!-- ***************************************************************************************** -->
+
+    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+        data-ktmenu-submenu-toggle="hover">
+        <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            <i class="kt-menu__link-icon fa fa-calendar-times"></i>
+            <span class="kt-menu__link-text"
+                  th:text="#{mvc.ui.utils.school-management.absences-management.label}"/>
+            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+        </a>
+
+        <div class="kt-menu__submenu " kt-hidden-height="280">
+            <span class="kt-menu__arrow"></span>
+            <ul class="kt-menu__subnav">
+                <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                <span class="kt-menu__link">
+                    <span class="kt-menu__link-text"
+                          th:text="#{mvc.ui.utils.school-management.absences-management.label}"/>
+                </span>
+                </li>
+
+                <li id="absencesListSideItem" class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/absences}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.utils.school-management.absences-management.absences-list.label}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <!-- ************************************************************************************* -->
+</div>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+<th:block th:insert="dashboard/fragments/form/content/fragments/form_content/personne_form_content"/>
+<div class="form-group row" >
+    <div class="col-lg-12">
+        <label class="w-100" th:text="#{mvc.ui.parent.email}"/>
+        <div class="input-group">
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="flaticon-email-black-circular-button"></i>
+                </span>
+            </div>
+            <input type="email" name="parentEmail" class="form-control"
+                   th:placeholder="#{mvc.ui.parent.email}">
+        </div>
+    </div>
+</div>
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+<th:block th:insert="dashboard/fragments/form/content/fragments/annee_scolaire_filliere_classe_logique_input_field ::
+    input(${id} + '-annee-scolaire-filliere-classe-logique-input-form', '', '', '')"/>
+</div>
+</html>

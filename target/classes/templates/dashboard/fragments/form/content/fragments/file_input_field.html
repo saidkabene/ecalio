@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <label class="w-100" th:text="#{mvc.ui.utils.files.upload.title}"
+           th:for="${id}"/>
+
+    <div class="input-group">
+        <div class="input-group-append file-input-icon" th:for="${id}">
+                <span class="input-group-text">
+                    <i class="fa fa-cloud-download-alt"></i>
+                </span>
+        </div>
+
+        <input name="file" type="file" class="form-control" th:id="${id}"
+               style="opacity: 0.0;">
+
+        <span th:id="${id} + '-text-holder'"
+              class="font-weight-bold ml-2 mr-2 row align-items-center"/>
+    </div>
+</div>
+</html>
+
+

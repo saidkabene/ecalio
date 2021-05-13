@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+
+    <th:block th:insert="dashboard/fragments/form/content/fragments/annee_scolaire_filliere_classe_logique_input_field ::
+               input(${id} + '-annee-scolaire-filliere-classe-logique-input-form', '', '', 'initModule()')"/>
+
+    <th:block th:insert="dashboard/fragments/form/content/fragments/module_enseignant_input_field ::
+               input(${id} + '-module-enseignant-input-form', '', '')"/>
+
+    <th:block th:insert="dashboard/fragments/form/content/fragments/day_of_week_time_range_picker_input_field ::
+               input(${id} + '-day-of-week-time-range-picker-input-form')"/>
+
+    <div class="form-group row">
+        <div class="col-6">
+            <th:block th:insert="'dashboard/fragments/form/content/fragments/designation_input_field'"/>
+        </div>
+
+        <div class="col-6">
+            <label class="w-100"
+                   th:text="#{mvc.ui.utils.school-management.plannings-management.plannings.planning.seance.classe-physique.label}"/>
+            <div class="input-group">
+                <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="fab fa-adn"></i>
+                </span>
+                </div>
+                <input name="classePhysique" class="form-control"
+                       th:placeholder="#{mvc.ui.utils.school-management.plannings-management.plannings.planning.seance.classe-physique.label}"
+                       required>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

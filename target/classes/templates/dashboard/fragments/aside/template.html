@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="aside" class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop"
+     id="kt_aside">
+
+    <!--/*@thymesVar id="compte" type="com.mssmfactory.ecalio.domainmodel.compte.Compte"*/-->
+    <!-- begin:: Aside -->
+    <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
+        <div class="kt-aside__brand-logo mb-2 mr-5">
+            <a href="http://www.ecalio.com">
+                <img class="img-fluid" alt="Logo" th:src="@{/images/small_ecalio_logo_all_colored_trans.png}">
+            </a>
+        </div>
+
+        <div class="kt-aside__brand-tools">
+            <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler"><span></span></button>
+        </div>
+    </div>
+    <!-- end:: Aside -->
+
+    <!-- begin:: Aside Menu -->
+    <div th:dir="#{mvc.ui.utils.direction.value}" class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid"
+         id="kt_aside_menu_wrapper">
+        <div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1"
+             data-ktmenu-dropdown-timeout="500">
+            <ul class="kt-menu__nav ">
+                <li class="kt-menu__item " aria-haspopup="true">
+                    <!--/*@thymesVar id="compteLogo" type="java.lang.String"*/-->
+                    <div class="kt-img-centered">
+                        <a th:href="@{/profil}">
+                            <img class="img-thumbnail img-fluid kt-img-rounded" th:src="@{'/images/accounts_logos/'
+                            + ${compteLogo}}"/>
+                        </a>
+                    </div>
+                </li>
+
+                <!-- ************************************************************************** -->
+
+                <li class="kt-menu__section ">
+                    <h4 class="kt-menu__section-text" th:text="#{mvc.ui.utils.indentification-informations.label}"/>
+                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
+                </li>
+
+                <li class="kt-menu__item" aria-haspopup="true">
+                    <a class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-user"></i>
+                        <span class="kt-menu__link-text" th:text="${compte.getUsername()}"/>
+                    </a>
+                </li>
+
+                <li class="kt-menu__item" aria-haspopup="true">
+                    <a class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon-multimedia"></i>
+                        <span class="kt-menu__link-text" th:text="${compte.getEmail()}"/>
+                    </a>
+                </li>
+
+                <!-- ************************************************************************** -->
+
+                <li class="kt-menu__section ">
+                    <h4 class="kt-menu__section-text" th:text="#{mvc.ui.utils.my.account.label}"/>
+                    <i class="kt-menu__section-icon flaticon-more-v2"></i>
+                </li>
+
+                <li id="myAccountSideItem" class="kt-menu__item" aria-haspopup="true">
+                    <a class="kt-menu__link" th:href="@{/profil}">
+                        <i class="kt-menu__link-icon fas fa-user-circle"></i>
+                        <span class="kt-menu__link-text" th:text="#{mvc.ui.utils.my.profile.label}"/>
+                    </a>
+                </li>
+
+                <li class="kt-menu__item" aria-haspopup="true">
+                    <a class="kt-menu__link" th:href="@{/logoutService}">
+                        <i class="kt-menu__link-icon flaticon-logout"></i>
+                        <span class="kt-menu__link-text" th:text="#{mvc.ui.utils.logout.label}"/>
+                    </a>
+                </li>
+
+                <!-- Specific content -->
+                <!--/*@thymesVar id="aside_content" type="java.lang.String"*/-->
+                <th:block th:insert="${aside_content} :: body"></th:block>
+
+                <!-- ************************************************************************** -->
+
+                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+                    data-ktmenu-submenu-toggle="hover">
+                    <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                        <i class="kt-menu__link-icon fa fa-mail-bulk"></i>
+                        <span class="kt-menu__link-text"
+                              th:text="#{mvc.ui.services.label}"/>
+                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+
+                    <div class="kt-menu__submenu " kt-hidden-height="280">
+                        <span class="kt-menu__arrow"></span>
+                        <ul class="kt-menu__subnav">
+                            <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                                <span class="kt-menu__link">
+                                <span class="kt-menu__link-text"
+                                    th:text="#{mvc.ui.services.label}"/>
+                                </span>
+                            </li>
+
+                            <li id="outboxSideMenuItem" class="kt-menu__item " aria-haspopup="true">
+                                <a th:href="@{/outbox}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                                    <span class="kt-menu__link-text"
+                                          th:text="#{mvc.ui.services.messaging.sent-messages.label}"/>
+                                </a>
+                            </li>
+
+                            <li id="inboxSideMenuItem" class="kt-menu__item " aria-haspopup="true">
+                                <a th:href="@{/inbox}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                                    <span class="kt-menu__link-text"
+                                          th:text="#{mvc.ui.services.messaging.received-messages.label}"/>
+                                </a>
+                            </li>
+
+                            <li id="newMessageSideItem" class="kt-menu__item " aria-haspopup="true">
+                                <a th:href="@{/new-message}" class="kt-menu__link ">
+                                    <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                                    <span class="kt-menu__link-text"
+                                          th:text="#{mvc.ui.services.messaging.new-message.label}"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- ************************************************************************** -->
+            </ul>
+        </div>
+    </div>
+    <!-- end:: Aside Menu -->
+
+    <script th:inline="javascript">
+        (function () {
+            $(document).ready(function () {
+                var selectedItemId = [[${selectedItemId}]];
+
+                if(typeof additionalSelectedItemId == 'function')
+                    selectedItemId += additionalSelectedItemId(selectedItemId);
+
+                $("#" + selectedItemId).addClass("kt-menu__item--active");
+                $("#" + selectedItemId).parents("li").addClass("kt-menu__item--open kt-menu__item--active");
+            });
+        })();
+    </script>
+</div>
+</body>
+</html>

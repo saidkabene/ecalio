@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id)">
+    <label class="w-100" th:text="#{mvc.ui.compte.email.label}"/>
+
+    <div class="input-group">
+        <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="flaticon-email-black-circular-button"></i>
+                </span>
+        </div>
+        <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+        <input th:id="${id}" name="email" class="form-control"
+               th:placeholder="#{mvc.ui.compte.email.label}" required>
+    </div>
+</div>
+</html>

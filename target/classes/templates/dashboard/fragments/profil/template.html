@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <link rel="stylesheet"
+          th:href="@{'/assets/css/pages/wizard/' + #{mvc.ui.css.wizard-4.file-name}}" type="text/css">
+</head>
+<body>
+<div th:fragment="body"
+     th:dir="#{mvc.ui.utils.direction.value}"
+     class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+
+    <!--/*@thymesVar id="profilAdditionalContent" type="java.lang.String"*/-->
+    <!-- begin:: Content Head -->
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-container  kt-container--fluid ">
+            <div class="kt-subheader__main">
+                <h3 class="kt-subheader__title" th:text="#{mvc.ui.utils.my.profile.label}"/>
+                <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+                <div class="kt-subheader__group" id="kt_subheader_search">
+                    <!--/*@thymesVar id="compte" type="com.mssmfactory.ecalio.domainmodel.compte.Compte"*/-->
+                    <span class="kt-subheader__desc" id="kt_subheader_total" th:text="${compte.getUsername()}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Content Head -->
+
+    <!-- begin:: Content -->
+    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+        <div class="kt-portlet kt-portlet--tabs">
+            <div class="kt-portlet__head" dir="ltr">
+                <div class="kt-portlet__head-toolbar">
+                    <ul class="nav nav-tabs nav-tabs-space-xl nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand"
+                        role="tablist">
+
+                        <!-- all list items headers -->
+                        <li th:replace="dashboard/fragments/profil/fragments/account_informations :: header-list-item"/>
+                        <li th:replace="dashboard/fragments/profil/fragments/change_password :: header-list-item"/>
+
+                        <th:block th:if="${profilAdditionalContent} != null">
+                            <div th:replace="${profilAdditionalContent} :: header-list-item"/>
+                        </th:block>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="kt-portlet__body">
+                <div class="tab-content">
+
+                    <!-- all content divs -->
+                    <div th:replace="dashboard/fragments/profil/fragments/account_informations :: content-div"/>
+                    <div th:replace="dashboard/fragments/profil/fragments/change_password :: content-div"/>
+
+                    <th:block th:if="${profilAdditionalContent} != null">
+                        <div th:replace="${profilAdditionalContent} :: content-div"/>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Content -->
+</div>
+</body>
+
+<div th:fragment="afterBody"/>
+</html>

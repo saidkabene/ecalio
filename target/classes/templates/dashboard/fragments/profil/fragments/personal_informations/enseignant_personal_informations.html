@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<li th:fragment="header-list-item" th:replace="dashboard/fragments/profil/fragments/personal_informations/personal_informations :: header-list-item"/>
+<li th:fragment="content-div" th:replace="dashboard/fragments/profil/fragments/personal_informations/personal_informations :: content-div(
+    'dashboard/fragments/form/content/fragments/form_content/profil/enseignant_profil_form_content.html'
+)"/>
+
+</html>

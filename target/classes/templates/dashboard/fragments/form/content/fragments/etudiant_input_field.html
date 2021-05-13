@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id, onSelectedChangedCallback)">
+    <label class="w-100"
+           th:text="#{mvc.ui.utils.school-management.students-management.students-list.student.label}"/>
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="onSelectedChangedCallback" type="java.lang.String"*/-->
+    <select class="form-control kt-select2 etudiant-select" name="etudiant"
+            th:id="${id}"
+            th:ms-onchange="${onSelectedChangedCallback}"
+            th:placeholder="#{mvc.ui.utils.school-management.students-management.students-list.student.label}">
+    </select>
+</div>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="body">
+
+<li class="kt-menu__section ">
+    <h4 class="kt-menu__section-text" th:text="#{mvc.ui.utils.dashboard.label}"/>
+    <i class="kt-menu__section-icon flaticon-more-v2"></i>
+</li>
+
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_planning_list_item.html :: li('', '')"/>
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/evaluation_reports_list_item.html :: li('', '')"/>
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/absences_list_item.html :: li('', '')"/>
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/homeworks_list_item.html :: li('', '')"/>
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_canteen_list_item.html :: li('', '')"/>
+
+</body>
+</html>

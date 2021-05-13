@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="body">
+
+<!--/*@thymesVar id="childs" type="java.util.List<com.mssmfactory.ecalio.domainmodel.utilisateur.personne.Etudiant>"*/-->
+<li class="kt-menu__section ">
+    <h4 class="kt-menu__section-text" th:text="#{mvc.ui.parent.childs.label}"/>
+    <i class="kt-menu__section-icon flaticon-more-v2"></i>
+</li>
+
+<th:block th:each="etudiant : ${childs}">
+    <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true"
+        data-ktmenu-submenu-toggle="hover">
+        <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+            <i class="kt-menu__link-icon fa fa-child"></i>
+            <span class="kt-menu__link-text" th:classappend="#{mvc.ui.utils.alignment.class.value}"
+                  th:text="${etudiant.getDesignation()}"/>
+            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+        </a>
+
+        <div class="kt-menu__submenu " kt-hidden-height="280">
+            <span class="kt-menu__arrow"></span>
+            <ul class="kt-menu__subnav">
+                <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true">
+                <span class="kt-menu__link">
+                    <span class="kt-menu__link-text"
+                          th:text="${etudiant.getDesignation()}"/>
+                </span>
+                </li>
+
+                <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_planning_list_item.html :: li(
+                    '-' + ${etudiant.getId()}, '/' + ${etudiant.getId()})"/>
+                <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/evaluation_reports_list_item.html :: li(
+                    '-' + ${etudiant.getId()}, '/' + ${etudiant.getId()})"/>
+                <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/absences_list_item.html :: li(
+                    '-' + ${etudiant.getId()}, '/' + ${etudiant.getId()})"/>
+                <th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/homeworks_list_item.html :: li(
+                    '-' + ${etudiant.getId()}, '/' + ${etudiant.getId()})"/>
+            </ul>
+        </div>
+    </li>
+</th:block>
+
+<hr/>
+
+<th:block th:insert="dashboard/fragments/aside/fragments/consumer/list_items/current_canteen_list_item.html :: li('', '')"/>
+
+<script>
+    function additionalSelectedItemId(selectedItemId) {
+        if (selectedItemId == 'currentPlanningSideItem' ||
+            selectedItemId == 'evaluationReportsSideItem' ||
+            selectedItemId == 'absencesListSideItem' ||
+            selectedItemId == 'myHomeworksListSideItem') {
+
+            return "-" + getUrlRequestId();
+        } else return "";
+    }
+</script>
+</body>
+</html>

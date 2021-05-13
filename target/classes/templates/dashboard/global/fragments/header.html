@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header" id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
+    <!--/*@thymesVar id="compte" type="com.mssmfactory.ecalio.domainmodel.compte.Compte"*/-->
+    <style>
+        .notification-blue-header-background {
+            background-image: url([[@{/assets/media/misc/bg-1.jpg}]]);
+        }
+    </style>
+    <!-- begin: Header Menu -->
+    <button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i
+            class="la la-close"></i></button>
+    <div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+        <div id="kt_header_menu"
+             class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
+            <ul class="kt-menu__nav ">
+                <li class="kt-menu__item " aria-haspopup="true">
+                    <!--/*@thymesVar id="schoolName" type="java.lang.String"*/-->
+                    <!--/*@thymesVar id="schoolWebsiteUrl" type="java.lang.String"*/-->
+                    <th:block th:switch="${schoolWebsiteUrl}">
+                        <a class="kt-menu__link" th:case="'#'" th:onclick='|notifyNoSchoolWebsite(
+                            "#{mvc.errors.error.label}", "#{mvc.errors.school-has-no-website}")|'>
+                            <i class="kt-menu__link-icon fas fa-school"></i>
+                            <span class="kt-menu__link-text" th:text="${schoolName}"/>
+                        </a>
+                        <a class="kt-menu__link" th:case="*" th:href="${schoolWebsiteUrl}">
+                            <i class="kt-menu__link-icon fas fa-school"></i>
+                            <span class="kt-menu__link-text" th:text="${schoolName}"/>
+                        </a>
+                    </th:block>
+                </li>
+
+                <li class="kt-menu__item " aria-haspopup="true">
+                    <a th:href="@{/profil}" class="kt-menu__link ">
+                        <i class="kt-menu__link-icon fas fa-user-circle"></i>
+                        <span class="kt-menu__link-text" th:text="#{mvc.ui.utils.my.profile.label}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end: Header Menu -->
+    <!-- begin:: Header Topbar -->
+    <div class="kt-header__topbar">
+        <!--begin: Notifications -->
+        <div class="kt-header__topbar-item dropdown">
+            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="true">
+                <span class="kt-header__topbar-icon kt-pulse kt-pulse--brand" onclick="markNotifications()">
+                    <i class="flaticon2-bell-alarm-symbol"></i>
+                    <span class="kt-pulse__ring"></span>
+                </span>
+
+                <span id="newNotificationPoint"
+                      class="kt-badge kt-badge--dot kt-badge--notify kt-badge--sm kt-badge--brand"
+                      style="opacity: 0.0"/>
+            </div>
+
+            <div th:dir="#{mvc.ui.utils.direction.value}"
+                 class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-lg">
+                <form>
+                    <!--begin: Head -->
+                    <div class="notification-blue-header-background kt-head kt-head--skin-dark kt-head--fit-x kt-head--fit-b">
+                        <h3 class="kt-head__title">
+                            <span class="mr-3" th:text="#{mvc.ui.utils.my.notifications.label}"></span>
+                            <span id="notificationCounter"
+                                  class="btn btn-success btn-sm btn-bold btn-font-md">0</span>
+                        </h3>
+                        <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success kt-notification-item-padding-x"
+                            role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-toggle="tab"
+                                   href="#topbar_notifications_notifications" role="tab"
+                                   aria-selected="true" th:text="#{mvc.ui.utils.my.alerts}"/>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--end: Head -->
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="topbar_notifications_notifications"
+                             role="tabpanel">
+                            <div class="kt-notification ms-notifications-holder kt-margin-t-10 kt-margin-b-10 kt-scroll"
+                                 data-scroll="true" data-height="300" data-mobile-height="200">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--end: Notifications -->
+
+        <!--begin: Quick panel toggler -->
+        <div class="kt-header__topbar-item kt-header__topbar-item--quick-panel" data-toggle="kt-tooltip"
+             title="Quick panel" data-placement="right">
+            <span class="kt-header__topbar-icon" id="kt_quick_panel_toggler_btn" onclick="markNotifications()">
+                <i class="flaticon-grid-menu"></i>
+            </span>
+        </div>
+        <!--end: Quick panel toggler -->
+
+        <!--begin: Language bar -->
+        <div class="kt-header__topbar-item kt-header__topbar-item--langs">
+            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
+                <!--/*@thymesVar id="country" type="java.lang.String"*/-->
+                <span th:class="'kt-header__topbar-icon flag-icon flag-icon-'">
+                    <span th:class="'flag-icon flag-icon-' + ${country}"></span>
+                </span>
+            </div>
+            <div th:dir="#{mvc.ui.utils.direction.value}"
+                 class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
+                <ul class="kt-nav kt-margin-t-10 kt-margin-b-10">
+                    <li class="kt-nav__item">
+                        <a class="kt-nav__link" onclick="change_language('ar', 'Arabic')"
+                           th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                            <span class="flag-icon flag-icon-dz mr-3 ml-3"></span>
+                            <span class="kt-nav__link-text" th:text="#{mvc.ui.utils.languages.arabic.label}"/>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a class="kt-nav__link" onclick="change_language('en', 'English')"
+                           th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                            <span class="flag-icon flag-icon-us mr-3 ml-3"></span>
+                            <span class="kt-nav__link-text" th:text="#{mvc.ui.utils.languages.english.label}"/>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a class="kt-nav__link" onclick="change_language('fr', 'French')"
+                           th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                            <span class="flag-icon flag-icon-fr mr-3 ml-3"></span>
+                            <span class="kt-nav__link-text" th:text="#{mvc.ui.utils.languages.french.label}"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--end: Language bar -->
+
+        <!--begin: User Bar-->
+        <div class="kt-header__topbar-item kt-header__topbar-item--user">
+            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
+                <div class="kt-header__topbar-user">
+                    <span class="kt-header__topbar-username kt-hidden-mobile" th:text="${compte.getEmail()}"/>
+                    <!--/*@thymesVar id="compteLogo" type="java.lang.String"*/-->
+                    <img alt="Profil Picture" class="kt-radius-100"
+                         th:src="@{'/images/accounts_logos/' + ${compteLogo}}"/>
+                </div>
+            </div>
+
+            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+
+                <!--begin: Head -->
+                <div class="notification-blue-header-background kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x">
+                    <div class="kt-user-card__avatar">
+                        <img class="kt-hidden" alt="Pic" th:src="@{'/images/accounts_logos/' + ${compteLogo}}"/>
+
+                        <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success"
+                              th:text="${compte.getUsername().toUpperCase().charAt(0)}"/>
+                    </div>
+                    <div class="kt-user-card__name" th:text="${compte.getUsername()}"/>
+                    <a th:href="@{/logoutService}"
+                       class="btn btn-label btn-label-brand btn-sm btn-bold text-white"
+                       th:text="#{mvc.ui.utils.logout.label}"/>
+                </div>
+                <!--end: Head -->
+
+                <!--begin: Navigation -->
+                <div th:dir="#{mvc.ui.utils.direction.value}" class="kt-notification">
+                    <a th:href="@{/profil}" class="kt-notification__item" th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                        <div class="kt-notification__item-icon">
+                            <i class="kt-font-success fas fa-user-circle"></i>
+                        </div>
+                        <div class="kt-notification__item-details">
+                            <div class="kt-notification__item-title kt-font-bold"
+                                 th:text="#{mvc.ui.utils.my.profile.label}"/>
+                            <div class="kt-notification__item-time"
+                                 th:text="#{mvc.ui.utils.my.profile.description}"/>
+                        </div>
+                    </a>
+                    <a th:href="@{/inbox}" class="kt-notification__item" th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                        <div class="kt-notification__item-icon">
+                            <i class="kt-font-warning kt-menu__link-icon fa fa-mail-bulk kt-font-information"></i>
+                        </div>
+                        <div class="kt-notification__item-details">
+                            <div class="kt-notification__item-title kt-font-bold"
+                                 th:text="#{mvc.ui.services.messaging.received-messages.label}"/>
+                            <div class="kt-notification__item-time"
+                                 th:text="#{mvc.ui.services.messaging.received-messages.description}"/>
+                        </div>
+                    </a>
+                    <a th:href="@{/new-message}" class="kt-notification__item" th:classappend="#{mvc.ui.utils.alignment.class.value}">
+                        <div class="kt-notification__item-icon">
+                            <i class="kt-font-danger socicon-mail kt-font-information"></i>
+                        </div>
+                        <div class="kt-notification__item-details">
+                            <div class="kt-notification__item-title kt-font-bold"
+                                 th:text="#{mvc.ui.services.messaging.new-message.label}"/>
+                            <div class="kt-notification__item-time"
+                                 th:text="#{mvc.ui.services.messaging.new-message.description}"/>
+                        </div>
+                    </a>
+                </div>
+                <!--end: Navigation -->
+            </div>
+        </div>
+        <!--end: User Bar -->
+    </div>
+    <!-- end:: Header Topbar -->
+
+    <script>
+        function notifyNoSchoolWebsite(title, message) {
+            Swal.fire(title, message, 'error')
+        }
+    </script>
+</div>
+</body>
+</html>

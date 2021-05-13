@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id, required)">
+    <label class="w-100" th:text="#{mvc.ui.utils.time.label}"/>
+
+    <!--/*@thymesVar id="dateRangeType" type="java.lang.String"*/-->
+    <div class="input-time-range input-group">
+        <div class="input-group-append">
+            <span class="input-group-text">
+                <i class="la la-clock-o"></i>
+            </span>
+        </div>
+
+        <!--/*@thymesVar id="required" type="java.lang.String"*/-->
+        <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+        <input type="text" class="input-sm form-control" name="heure"
+               th:attrappend="required=${required}"
+               th:id="${id}"/>
+    </div>
+</div>
+</html>

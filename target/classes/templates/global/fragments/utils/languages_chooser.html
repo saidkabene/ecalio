@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul th:fragment="languages-chooser" class="d-flex flex-row d-flex justify-content-center navbar-nav pr-0">
+    <li class="langage-badge badge badge-light nav-item ml-2 mr-2 mt-2">
+        <a href="#" onclick="change_language('en', 'English')">
+            <span class="flag-icon flag-icon-us"></span>
+        </a>
+    </li>
+
+    <li class="langage-badge badge badge-light nav-item ml-2 mr-2 mt-2">
+        <a href="#" onclick="change_language('fr', 'French')">
+            <span class="flag-icon flag-icon-fr"></span>
+        </a>
+    </li>
+
+    <li class="langage-badge badge badge-light nav-item ml-2 mr-2 mt-2">
+        <a href="#" onclick="change_language('ar', 'Arabic')">
+            <span class="flag-icon flag-icon-dz"></span>
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>

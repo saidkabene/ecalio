@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="input(id, onModuleSelectedChangedCallback,
+    onEtudiantSelectedChangedCallback)">
+
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <div class="col-lg-6 col-md-6 col-sm-12 kt-margin-t-5">
+        <!--/*@thymesVar id="onModuleSelectedChangedCallback" type="java.lang.String"*/-->
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/module_input_field'
+            :: input(${id} + '-module-input', ${onModuleSelectedChangedCallback})"/>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 kt-margin-t-5">
+        <!--/*@thymesVar id="onEtudiantSelectedChangedCallback" type="java.lang.String"*/-->
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/etudiant_input_field'
+            :: input(${id} + '-etudiant-input', ${onEtudiantSelectedChangedCallback})"/>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 kt-margin-t-5">
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/date_picker_input_field'
+            :: date('full-date-picker', 'mvc.ui.utils.date.label', 'date', 'required')"/>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 kt-margin-t-5">
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/time_picker_input_field'
+            :: input(${id}, 'required')"/>
+    </div>
+</div>
+</html>

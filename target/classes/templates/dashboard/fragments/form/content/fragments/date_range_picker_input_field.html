@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="date-range(debutId, finId, dateRangeType, required)">
+    <label class="w-100" th:text="#{mvc.ui.utils.interval.label}"/>
+
+    <!--/*@thymesVar id="dateRangeType" type="java.lang.String"*/-->
+    <div class="input-daterange input-group" th:classappend="${dateRangeType}">
+        <div class="input-group-append">
+            <span class="input-group-text">
+                <i class="la la-calendar"></i>
+            </span>
+        </div>
+
+        <!--/*@thymesVar id="required" type="java.lang.String"*/-->
+        <!--/*@thymesVar id="debutId" type="java.lang.String"*/-->
+        <!--/*@thymesVar id="finId" type="java.lang.String"*/-->
+        <input th:id="${debutId}" type="text" class="input-sm form-control" name="debut"
+               th:attrappend="required=${required}"/>
+        <span class="input-group-text">
+            <i class="la la-ellipsis-h"></i>
+        </span>
+        <input th:id="${finId}" type="text" class="input-sm form-control" name="fin"
+               th:attrappend="required=${required}"/>
+    </div>
+</div>
+</html>

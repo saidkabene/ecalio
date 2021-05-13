@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <div class="form-group row">
+        <div class="col-lg-12">
+            <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+            <th:block th:insert="dashboard/fragments/form/content/fragments/annee_scolaire_filliere_classe_logique_input_field ::
+              input(${id} + '-annee-scolaire-filliere-classe-logique',
+              '',
+              '',
+              'findAllEtudiantsByClasseLogique(\''
+                + ${id} + '-annee-scolaire-filliere-classe-logique-classe-logique-input\', \''
+                + ${id} + '-etudiant-rentree-scolaire-periode-enseignement-etudiant-input\'' +
+              ')')"/>
+        </div>
+
+        <div class="col-lg-12">
+            <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+            <th:block th:insert="dashboard/fragments/form/content/fragments/etudiant_rentree_scolaire_periode_enseignement_input_field ::
+              input(${id} + '-etudiant-rentree-scolaire-periode-enseignement',
+                'findAllNotes()',
+                'findAllNotes()',
+                'findAllNotes()'
+              )"/>
+        </div>
+    </div>
+</div>
+</html>

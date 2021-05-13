@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="modalId" type="java.lang.String"*/-->
+<!--/*@thymesVar id="rootElement" type="java.lang.String"*/-->
+<!--/*@thymesVar id="childAttribute" type="java.lang.String"*/-->
+<!--/*@thymesVar id="icon" type="java.lang.String"*/-->
+<!--/*@thymesVar id="formContent" type="java.lang.String"*/-->
+<!--/*@thymesVar id="formUrl" type="java.lang.String"*/-->
+<!--/*@thymesVar id="parentAttribute" type="java.lang.String"*/-->
+<!--/*@thymesVar id="inputParentAttribute" type="java.lang.String"*/-->
+<!--/*@thymesVar id="includeParentUrlInsideFormInput" type="java.lang.Boolean"*/-->
+<div th:fragment="childsAsTable(
+    modalId,
+    icon,
+
+    datatableColumns,
+    rootElement,
+
+    childAttribute,
+    parentAttribute,
+    inputParentAttribute,
+
+    formContent,
+    formUrl,
+
+    includeParentUrlInsideFormInput)"
+     class="modal fade childs-as-table-modal" tabindex="-1" role="dialog" aria-hidden="true"
+     aria-labelledby="?"
+
+     th:id="${modalId}"
+     th:dir="#{mvc.ui.utils.direction.value}"
+
+     th:rootElement="${rootElement}"
+     th:childAttribute="${childAttribute}"
+     th:parentAttribute="${parentAttribute}"
+
+     th:includeParentUrlInsideFormInput="${includeParentUrlInsideFormInput}">
+
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1><i class="pr-3 text-primary" th:classappend="${icon}"></i></h1>
+                <h1 th:id="${modalId} + 'Title'" class="text-center w-100"/>
+                <h1><i class="pl-3 text-primary" th:classappend="${icon}"></i></h1>
+            </div>
+            <div class="modal-body">
+                <th:block th:if="${formContent} != null">
+                    <div class="kt-portlet__body">
+                        <div class="kt-form kt-form--label-right kt-margin-b-15">
+                            <div class="row align-items-center">
+                                <form class="col-xl-12 post-json-form" method="POST"
+                                      ms-simple-notify-on-success="true"
+                                      ms-notify-on-fail="true"
+                                      th:action="${formUrl}"
+                                      th:id="${modalId} + 'Form'"
+                                      th:ms-success-callback="'onChildDatatableInsertionSuccessCallback'">
+
+                                    <input id="parentId" th:name="${inputParentAttribute}" hidden="true">
+
+                                    <div class="col-xl-12"
+                                         th:insert="'dashboard/fragments/form/content/' + ${formContent} :: div(${modalId})">
+                                    </div>
+
+                                    <div class="col-xl-12 row ml-0 p-0">
+                                        <div class="col-6">
+                                            <th:block th:insert="global/fragments/utils/add_button"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <th:block th:insert="global/fragments/utils/close_button"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+
+                <div class="demo-html table-responsive">
+                    <table th:id="${modalId} + 'Datatable'"
+                           class="table table-striped- table-bordered table-hover table-checkable"
+                           style="width:100%;">
+                        <thead>
+                        <th title="#">
+                                <span>
+                                    <i class="kt-font-brand mr-2 ml-2 fa fa-list-ol"></i>
+                                    <th:block th:text="#{mvc.ui.utils.index.label}"/>
+                                </span>
+                        </th>
+                        <!--/*@thymesVar id="datatableColumns" type="java.lang.String"*/-->
+                        <th:block th:replace="'dashboard/fragments/datatable/thead/' +
+                                ${ datatableColumns } :: thead"/>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

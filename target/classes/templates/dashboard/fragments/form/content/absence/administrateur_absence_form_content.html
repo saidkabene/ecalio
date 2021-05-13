@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag" th:fragment="div(id)">
+    <!--/*@thymesVar id="id" type="java.lang.String"*/-->
+    <th:block th:insert="dashboard/fragments/form/content/fragments/annee_scolaire_filliere_classe_logique_input_field ::
+        input(${id} + '-annee-scolaire-filliere-classe-logique',
+              '',
+              '',
+              'findAllEtudiantsByClasseLogique(\''
+                + ${id} + '-annee-scolaire-filliere-classe-logique-classe-logique-input\', \''
+                + ${id} + '-etudiant-date-heure-etudiant-input\'' +
+              ')')"/>
+
+    <div class="form-group row">
+        <th:block th:insert="'dashboard/fragments/form/content/fragments/etudiant_date_heure' ::
+                input(${id} + '-etudiant-date-heure', '')"/>
+    </div>
+</div>
+</html>

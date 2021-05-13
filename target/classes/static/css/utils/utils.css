@@ -1,0 +1,90 @@
+.toast-message {
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+.toast-title {
+    font-weight: bold !important;
+    font-size: 1.8rem !important;
+    color: white !important;
+}
+
+.invalid-feedback {
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+.flag-icon {
+    font-size: 20px !important;
+}
+
+.langage-badge {
+    width: fit-content !important;
+}
+
+td {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center !important;
+}
+
+.post-json-form input, .ms-filter-form input {
+    font-size: 1.1rem !important;
+}
+
+.post-json-form label, .ms-filter-form label {
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+}
+
+.post-json-form i, .ms-filter-form i {
+    font-size: 1.6rem !important;
+}
+
+.dtr-title {
+    vertical-align: middle !important;
+}
+
+input {
+    font-weight: bold !important;
+}
+
+.ms-med-badge {
+    font-size: 1.5rem !important;
+}
+
+.ms-black-color {
+    color: #595d6e !important;
+}
+
+/* ----------------- fixes ------------------*/
+
+.select2-results__option {
+    min-height: 28px !important;
+}
+
+.select2-selection__rendered {
+    margin-left: 1rem !important;
+    font-weight: bold !important;
+}
+
+.select2-selection {
+    min-height: 3.5rem !important;
+}
+
+.select2-selection__arrow {
+    top: 50% !important;
+}
+
+.select2-results__option {
+    font-weight: bold !important;
+}
+
+.select2-results__group {
+    font-size: 1.5rem;
+}
